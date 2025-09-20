@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import './App.css'
 import Countries from './components/Countries/Countries'
 
@@ -7,12 +7,14 @@ const fetchPromise = fetch('https://openapi.programming-hero.com/api/all')
 
 function App() {
   const countriesPromise = fetchPromise;
+  
   return (
     <>
-      
+
       <Suspense fallback={<p>Countries loading...</p>}>
         <Countries countriesPromise ={countriesPromise}></Countries>
       </Suspense>
+      
     </>
   )
 }

@@ -11,10 +11,15 @@ const Countries = ({countriesPromise}) => {
     const countriesData = use(countriesPromise);
     const countries = countriesData.countries;
     // console.log(countries);
-
+    const [likes, setLikes] = useState(0)
     return (
             
         <div><h1>Countries of the World : {countries.length}</h1>
+        <button 
+          onClick={() => setLikes(likes + 1)}>
+          👍 Like ({likes})
+        </button>
+
         <h4>Total Visited Countries : {visitedCountries.length} </h4>
         <ol>
             {
